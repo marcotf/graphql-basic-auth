@@ -1,6 +1,6 @@
 # graphql-basic-auth
 
-A GraphQL API with JWT auth example
+A GraphQL API with JWT auth example. Using `apollo-graphql` and `graphql-tools` for directives management.
 
 ## Installation
 
