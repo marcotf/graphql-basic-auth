@@ -1,0 +1,30 @@
+type User {
+  name: String
+  email: String
+
+  # The roles are only visible to authenticated admin users
+  roles: [String] @hasRole(role: "admin") @isAuthenticated
+}
+
+type Auth {
+  # User object of the logged credentials
+  user: User
+  # JWT token of the logged credentials
+  token: String
+}
+
+type Query {
+  # Return currently logged user (if one is logged)
+  me: User @isAuthenticated
+
+  # Return the list of all users if logged user has role admin
+  users: [User] @hasRole(role: "admin") @isAuthenticated
+}
+
+type Mutation {
+  # Create and add a new user to the list
+  signup(name: String!, email: String!, password: String!): Boolean
+
+  # Check if credentials match an user and return a token + user object
+  signin(email: String!, password: String!): Auth
+}

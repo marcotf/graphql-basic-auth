@@ -1,0 +1,5 @@
+# _scalar.graphql is a file used to list all directives and scalaras type needed
+
+# Directive ISAUTHENTICATED and HASROLE can be used on QUERIES / MUTATION or directly on a FIELD of a type
+directive @isAuthenticated on QUERY | FIELD_DEFINITION
+directive @hasRole(role: String) on QUERY | FIELD_DEFINITION
